@@ -1,0 +1,127 @@
+aside {
+	height: 100%;
+	padding-top: 56px;
+	padding-right: 15px;
+	.wrap {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		box-shadow: 2px -2px 4px rgba(0, 0, 0, 0.1);
+		background-color: #fff;
+		border: 1px solid #f8f8f8;
+		position: relative;
+		height: 100%;
+		&:before {
+			display: block;
+			height: 80%;
+			width: 8px;
+			content: '';
+			background-color: #b0b0b0;
+			position: absolute;
+			right: -12px;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+	}
+	.sendwichWrap {
+		padding: 20px;
+		cursor: pointer;
+		&.active {
+			.sendwich {
+				.ent {
+					opacity: 0;
+					transition: all ease 400ms;
+				}
+				&:after {
+					transition: all ease 400ms;
+					transform: rotate(45deg);
+					top: 9px;
+					width: 100%;
+				}
+				&:before {
+					transition: all ease 400ms;
+					transform: rotate(-45deg);
+					bottom: 9px;
+					width: 100%;
+				}
+			}
+		}
+		.sendwich {
+			position: relative;
+			width: 20px;
+			height: 20px;
+			&:after,
+			&:before {
+				position: absolute;
+				content: '';
+				display: block;
+				left: 0;
+				height: 2px;
+				background-color: #3e3e3e;
+				transition: all ease 400ms;
+			}
+			&:after {
+				top: 0;
+				width: 100%;
+			}
+			&:before {
+				bottom: 0;
+				width: 50%;
+			}
+			.ent {
+				position: absolute;
+				left: 0;
+				top: 50%;
+				transform: translateY(-50%);
+				width: 75%;
+				transition: all ease 400ms;
+				height: 2px;
+				background-color: #000;
+			}
+		}
+	}
+
+	.link {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 6.66%;
+		transition: all ease 400ms;
+
+		.ic {
+			transition: all ease 400ms;
+			width: 20px;
+			height: 20px;
+			path {
+				fill: #3e3e3e;
+			}
+		}
+		&.active,
+		&:hover {
+			border-left: 1px solid #846493;
+			background-color: #f1eff4;
+			transition: all ease 400ms;
+			.ic {
+				transition: all ease 400ms;
+				opacity: 0.7;
+				path {
+					fill: #846493;
+				}
+			}
+		}
+	}
+}
+@media (max-width: 768px) {
+	aside {
+		position: fixed;
+		left: 0;
+		top: 0;
+		padding-top: 0;
+		z-index: 10;
+		.wrap {
+			&:before {
+				display: none;
+			}
+		}
+	}
+}
